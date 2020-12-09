@@ -31,8 +31,9 @@ listint_t *insert_node(listint_t **head, int number)
 {
 	listint_t *new, *current, *prox;
 
-	if (*head != NULL)
-		current = *head, prox = (*current).next;
+	if (head == NULL)
+		return (NULL);
+	current = *head, prox = (*current).next;
 	new = malloc(sizeof(listint_t));
 	if (new == NULL)
 		return (NULL);
