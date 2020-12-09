@@ -31,7 +31,6 @@ listint_t *insert_node(listint_t **head, int number)
 {
 	listint_t *new, *current, *prox;
 
-	current = *head, prox = (*current).next;
 	new = malloc(sizeof(listint_t));
 	if (new == NULL)
 		return (NULL);
@@ -42,6 +41,7 @@ listint_t *insert_node(listint_t **head, int number)
 		return (add_nodeint(head, number));
 	else
 	{
+		current = *head, prox = (*current).next;
 		while (current != NULL)
 		{
 			if ((*current).next == NULL)
