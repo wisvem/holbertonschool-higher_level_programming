@@ -41,15 +41,14 @@ listint_t *insert_node(listint_t **head, int number)
 	if (*head == NULL)
 		*head = new;
 	else if (number < (*current).n)
-		add_nodeint(head, number);
+		return (add_nodeint(head, number));
 	else
 	{
 		while (current != NULL)
 		{
 			if ((*current).next == NULL)
 			{
-				add_nodeint_end(head, number);
-				break;
+				return (add_nodeint_end(head, number));
 			}
 			if (number == (*current).n)
 			{
