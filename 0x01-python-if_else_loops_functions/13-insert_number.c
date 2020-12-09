@@ -38,7 +38,7 @@ listint_t *insert_node(listint_t **head, int number)
 	(*new).n = number, (*new).next = NULL;
 	if (*head == NULL)
 		*head = new;
-	else if (number < (*current).n)
+	else if (number < (**head).n)
 		return (add_nodeint(head, number));
 	else
 	{
