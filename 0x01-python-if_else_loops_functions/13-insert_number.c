@@ -29,16 +29,14 @@ listint_t *add_nodeint(listint_t **head, const int n)
 **/
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *new;
-	listint_t *current, *prox;
+	listint_t *new, *current, *prox;
 
-	current = *head;
-	prox = (*current).next;
+	if (*head != NULL)
+		current = *head, prox = (*current).next;
 	new = malloc(sizeof(listint_t));
 	if (new == NULL)
 		return (NULL);
-	(*new).n = number;
-	(*new).next = NULL;
+	(*new).n = number, (*new).next = NULL;
 	if (*head == NULL)
 		*head = new;
 	else if (number < (*current).n)
