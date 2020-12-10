@@ -5,6 +5,7 @@ if __name__ == "__main__":
 arglen = len(sys.argv)
 if arglen != 4:
     print("Usage: ./100-my_calculator.py <a> <operator> <b>")
+    exit(1)
 else:
     a = int(sys.argv[1])
     b = int(sys.argv[3])
@@ -18,3 +19,4 @@ else:
         print("{} / {} = {}".format(a, b, div(a, b)))
     else:
         print("Unknown operator. Available operators: +, -, * and /")
+        exit(1)
