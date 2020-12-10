@@ -8,5 +8,5 @@ else:
     print("{} Arguments:".format(len(sys.argv) - 1))
 for arg in sys.argv:
     if (i > 0):
-        print("{}: {}".format(i, arg))
+        print("{}:".format(i), arg)
     i = i + 1
