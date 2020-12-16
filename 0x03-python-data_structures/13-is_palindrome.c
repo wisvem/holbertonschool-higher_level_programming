@@ -31,13 +31,11 @@ int palin(int *s, int i, int lenght)
 **/
 int is_palindrome(listint_t **head)
 {
-	listint_t *start;
-	int i = 0;
-	int t[1024];
+	listint_t *start = *head;
+	int i = 0, t[1024];
 
 	if (*head != NULL)
 	{
-		start = *head;
 		while (start != NULL)
 		{
 			t[i] = (*start).n;
