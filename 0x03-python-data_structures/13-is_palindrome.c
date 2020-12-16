@@ -17,10 +17,11 @@ int is_palindrome(listint_t **head)
 	}
 	for (j = 0; j < i; j++)
 	{
-		if (t[j] != t[i - j - 1])
+		if (t[j] != t[i - 1])
 		{
 			return (0);
 		}
+		i--;
 	}
 	return (1);
 }
