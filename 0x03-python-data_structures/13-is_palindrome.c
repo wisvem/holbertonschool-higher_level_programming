@@ -34,15 +34,12 @@ int is_palindrome(listint_t **head)
 	listint_t *start = *head;
 	int i = 0, t[1024];
 
-	if (*head != NULL)
+	while (start != NULL)
 	{
-		while (start != NULL)
-		{
-			t[i] = (*start).n;
-			start = (*start).next;
-			i++;
-		}
-		return (palin(t, 0, i -1));
+		t[i] = (*start).n;
+		start = (*start).next;
+		i++;
 	}
+	return (palin(t, 0, i - 1));
 	return (1);
 }
