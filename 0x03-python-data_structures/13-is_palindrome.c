@@ -1,28 +1,6 @@
 #include "lists.h"
 
 /**
-* listint_len - Entry point
-* @h: head of the list
-* Return: the number of elements in a linked list
-**/
-int listint_len(const listint_t *h)
-{
-	int elements;
-
-	if (h == NULL)
-	{
-		return (0);
-	}
-	for (elements = 0; h != NULL; elements++)
-	{
-		if ((*h).n == 0)
-			elements--;
-		h = (*h).next;
-	}
-	return (elements);
-}
-
-/**
 * palin - check array
 * @arr: array to check
 * @n: size
@@ -41,7 +19,6 @@ int palin(int arr[], int n)
 		}
 		j--;
 	}
-	free(arr);
 	if (flag == 1)
 		return (0);
 	else
@@ -57,19 +34,19 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *start;
 	int i = 0;
-	int *t = NULL;
+	int t[1024];
 
-	start = *head;
-	i = listint_len(*head);
-	t = malloc(sizeof(int) * i);
-	i = 0;
-	while (start != NULL)
+	if (*head != NULL)
 	{
-		t[i] = (*start).n;
-		start = (*start).next;
-		i++;
+		start = *head;
+		i = 0;
+		while (start != NULL)
+		{
+			t[i] = (*start).n;
+			start = (*start).next;
+			i++;
+		}
+		return (palin(t, i));
 	}
-	return (palin(t, i));
+	return (1);
 }
-
-
