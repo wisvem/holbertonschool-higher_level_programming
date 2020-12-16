@@ -8,13 +8,12 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *start = *head;
-	int i = 0, j, t[1024];
+	int i, j, t[1024];
 
-	while (start != NULL)
+	for (i = 0; start != NULL; i++)
 	{
 		t[i] = (*start).n;
 		start = (*start).next;
-		i++;
 	}
 	for (j = 0; j < i; j++)
 	{
