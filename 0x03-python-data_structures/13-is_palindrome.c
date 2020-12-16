@@ -8,20 +8,20 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *start = *head;
-	int i, j, t[10240];
+	int i = 0, j, t[10240];
 
 	if (*head)
 	{
-		for (i = 0; start != NULL; i++)
+		while (start != NULL)
 		{
 			t[i] = (*start).n;
 			start = (*start).next;
+			i++;
 		}
 		for (j = 0; j < i; j++)
 		{
-			if (t[j] != t[i - 1])
+			if (t[j] != t[i - j - 1])
 				return (0);
-			i--;
 		}
 	}
 	return (1);
