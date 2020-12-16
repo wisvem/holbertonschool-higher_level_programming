@@ -11,19 +11,22 @@ int is_palindrome(listint_t **head)
 	int i = 0, j;
 	int t[1024];
 
-	start = *head;
-	i = 0;
-	while (start != NULL)
+	if (*head != NULL)
 	{
-		t[i] = (*start).n;
-		start = (*start).next;
-		i++;
-	}
-	for (j = 0; j < (i / 2); j++)
-	{
-		if (t[i - j - 1] != t[j])
+		start = *head;
+		i = 0;
+		while (start != NULL)
 		{
-			return (0);
+			t[i] = (*start).n;
+			start = (*start).next;
+			i++;
+		}
+		for (j = 0; j < (i / 2); j++)
+		{
+			if (t[i - j - 1] != t[j])
+			{
+				return (0);
+			}
 		}
 	}
 	return (1);
