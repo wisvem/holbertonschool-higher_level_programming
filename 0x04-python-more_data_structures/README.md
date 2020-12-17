@@ -38,4 +38,4 @@ This project is intended to learn more data structures, lambda, filter, map and 
 - Create two C functions that print some basic info about Python lists and Python bytes objects.
 
 ## Contributors
-[wisvem](https://github.com/wisvem) Wiston Venera Macías
+[wisvem](https://github.com/wisvem)
