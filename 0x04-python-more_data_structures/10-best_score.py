@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 def best_score(a_dictionary):
     if(a_dictionary):
-        for key in sorted(a_dictionary.values(), reverse=True):
+        cp = a_dictionary
+        for key, value in sorted(cp.items(), key=lambda x: x[1], reverse=True):
             return key
