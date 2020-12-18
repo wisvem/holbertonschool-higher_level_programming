@@ -12,4 +12,5 @@ def roman_to_int(roman_string):
                     result = result + roman.get(roman_string[e])
             else:
                 result = result+roman.get(roman_string[e])
-    return result
+        return result
+    return None
