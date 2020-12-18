@@ -5,8 +5,8 @@ def roman_to_int(roman_string):
     if isinstance(roman_string, str):
         for e in range(len(roman_string)):
             if e > 0:
-                if roman.get(roman_string[e-1]) < roman.get(roman_string[e]):
-                    prev = roman.get(roman_string[e-1])
+                prev = roman.get(roman_string[e-1])
+                if prev < roman.get(roman_string[e]):
                     result += roman.get(roman_string[e])-(prev*2)
                 else:
                     result = result + roman.get(roman_string[e])
