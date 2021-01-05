@@ -35,7 +35,7 @@ class Square:
         """[summary]
 
         Args:
-            value ([type]): [description]
+            value (int): [description]
 
         Raises:
             TypeError: [description]
@@ -48,6 +48,8 @@ class Square:
         self.__size = value
 
     def my_print(self):
+        """print a graphical representation
+        """
         if self.__size == 0:
             print()
         for i in range(self.__size):
