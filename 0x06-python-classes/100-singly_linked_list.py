@@ -3,7 +3,7 @@
 
 
 class Node:
-    """Node class"""
+    '''class to create Nodes'''
 
     def __init__(self, data, next_node=None):
         """[summary]
@@ -63,7 +63,7 @@ class Node:
 
 
 class SinglyLinkedList:
-    """Singe linked list class"""
+    """Class to create single linked list"""
 
     def __init__(self):
         self.__head = None
