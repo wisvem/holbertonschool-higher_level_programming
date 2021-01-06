@@ -3,7 +3,7 @@
 
 
 class Node:
-    """Class to manipulare Nodes"""
+    """Class to manipulate Nodes and no more"""
 
     def __init__(self, data, next_node=None):
         """Method to initialize
@@ -24,15 +24,6 @@ class Node:
         """
         return self.__data
 
-    @property
-    def next_node(self):
-        """Getter for next_node
-
-        Returns:
-            [Node]: [description]
-        """
-        return self.__next_node
-
     @data.setter
     def data(self, value):
         """Method to set data
@@ -46,6 +37,15 @@ class Node:
         if type(value) is not int:
             raise TypeError("data must be an integer")
         self.__data = value
+
+    @property
+    def next_node(self):
+        """Getter for next_node
+
+        Returns:
+            [Node]: [description]
+        """
+        return self.__next_node
 
     @next_node.setter
     def next_node(self, value):
@@ -108,4 +108,3 @@ class SinglyLinkedList:
             curr = curr.next_node
         listx += f'{curr.data}'
         return listx
-        
