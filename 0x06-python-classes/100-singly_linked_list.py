@@ -46,18 +46,18 @@ class SinglyLinkedList:
             return
         while curr.next_node is not None:
             if curr.next_node.data >= value:
-                 break
+                break
             curr = curr.next_node
         newNode.next_node = curr.next_node
         curr.next_node = newNode
         return
-    
+
     def __str__(self):
         list = ""
         curr = self.__head
         while curr.next_node is not None:
             list += f'{curr.data}'
-            list +=  "\n"
+            list += "\n"
             curr = curr.next_node
         list += f'{curr.data}'
         return list
