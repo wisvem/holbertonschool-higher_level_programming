@@ -2,9 +2,6 @@
 '''Square module'''
 
 
-from sys import path
-
-
 class Square:
     '''A class to create squares'''
 
