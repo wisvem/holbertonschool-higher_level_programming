@@ -101,6 +101,8 @@ class SinglyLinkedList:
             [type]: [description]
         """
         list = ""
+        if self.__head is None:
+            return list
         curr = self.__head
         while curr.next_node is not None:
             list += f'{curr.data}'
