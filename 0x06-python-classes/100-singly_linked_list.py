@@ -12,8 +12,8 @@ class Node:
             data ([type]): [description]
             next_node ([type], optional): [description]. Defaults to None.
         """
-        self.__data = data
-        self.__next_node = next_node
+        self.data = data
+        self.next_node = next_node
 
     @property
     def data(self):
@@ -66,10 +66,9 @@ class SinglyLinkedList:
     """Class to create single linked list"""
 
     def __init__(self):
+        """[summary]
+        """
         self.__head = None
-
-    def __str__(self):
-        pass
 
     def sorted_insert(self, value):
         """[summary]
