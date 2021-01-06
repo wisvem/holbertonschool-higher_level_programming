@@ -47,16 +47,17 @@ class Square:
     def my_print(self):
         """print a graphical representation
         """
-        if self.__size == 0:
-            print()
-        for x in range(self.__position[1]):
-            print()
-        for i in range(self.__size):
-            for j in range(self.__size + self.position[0]):
-                if j >= self.position[0]:
-                    print("#", end="")
-                else:
-                    print(" ", end="")
+        if self.__size != 0:
+            for x in range(self.__position[1]):
+                print()
+            for i in range(self.__size):
+                for j in range(self.__size + self.position[0]):
+                    if j >= self.position[0]:
+                        print("#", end="")
+                    else:
+                        print(" ", end="")
+                print()
+        else:
             print()
 
     @property
@@ -65,6 +66,6 @@ class Square:
 
     @position.setter
     def position(self, value):
-        if not isinstance(value, tuple) or len(value) != 2:
+        if not isinstance(value, tuple) or len(value) != 2 or value:
             raise ValueError("position must be a tuple of 2 positive integers")
         self.__position = value
