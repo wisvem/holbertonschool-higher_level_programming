@@ -1,7 +1,10 @@
 #!/usr/bin/python3
+'''Linked list module'''
 
 
 class Node:
+    """Node class"""
+
     def __init__(self, data, next_node=None):
         self.__data = data
         self.__next_node = next_node
@@ -28,6 +31,8 @@ class Node:
 
 
 class SinglyLinkedList:
+    """Singe linked list class"""
+
     def __init__(self):
         self.__head = None
 
