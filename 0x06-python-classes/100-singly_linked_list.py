@@ -27,7 +27,7 @@ class Node:
 
     @property
     def next_node(self):
-        """[summary]
+        """Getter for next_node
 
         Returns:
             [Node]: [description]
@@ -36,7 +36,7 @@ class Node:
 
     @data.setter
     def data(self, value):
-        """[summary]
+        """Method to set data
 
         Args:
             value ([type]): [description]
@@ -50,7 +50,7 @@ class Node:
 
     @next_node.setter
     def next_node(self, value):
-        """[summary]
+        """Method to set node
 
         Args:
             value ([type]): [description]
@@ -72,7 +72,7 @@ class SinglyLinkedList:
         self.__head = None
 
     def sorted_insert(self, value):
-        """[summary]
+        """[Method to add node]
 
         Args:
             value ([type]): [description]
@@ -95,7 +95,7 @@ class SinglyLinkedList:
         return
 
     def __str__(self):
-        """[summary]
+        """[Overloading str]
 
         Returns:
             [type]: [description]
