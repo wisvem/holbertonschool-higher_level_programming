@@ -10,8 +10,14 @@ class Square:
         self.position = position
 
     def __str__(self):
-        print(f"{self.my_print(True)} ", end='')
-        return ''
+        if self.size == 0:
+            return ""
+        pt = "\n" * self.position[1]
+        for i in range(self.size):
+            pt = pt + "{}{}".format(" " * self.position[0], "#" * self.size)
+            if i < self.size - 1:
+                pt = pt + "\n"
+        return pt
 
     @property
     def size(self):
@@ -68,7 +74,7 @@ class Square:
                     else:
                         print(" ", end="")
                 print()
-
+        return
 
     @position.setter
     def position(self, value):
