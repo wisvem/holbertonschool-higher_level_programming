@@ -1,13 +1,12 @@
 #!/usr/bin/python3
-'''Linked list module'''
+"""Linked List Module"""
 
 
 class Node:
-    """Class to manipulare Nodes"
-    """
+    """Class to manipulare Nodes"""
 
     def __init__(self, data, next_node=None):
-        """[summary]
+        """Method to initialize
 
         Args:
             data ([int]): [integer]
@@ -18,7 +17,7 @@ class Node:
 
     @property
     def data(self):
-        """[Data getter]
+        """Data getter
 
         Returns:
             [int]: [integer]
@@ -64,15 +63,14 @@ class Node:
 
 
 class SinglyLinkedList:
-    """Single linked list class"
-    """
+    """Single linked list class"""
+
     def __init__(self):
-        """para inicializar
-        """
+        """Method for initialize a Link object"""
         self.__head = None
 
     def sorted_insert(self, value):
-        """[Method to add node]
+        """Method to add node
 
         Args:
             value ([type]): [description]
@@ -100,13 +98,14 @@ class SinglyLinkedList:
         Returns:
             [type]: [description]
         """
-        list = ""
+        listx = ""
         if self.__head is None:
-            return list
+            return listx
         curr = self.__head
         while curr.next_node is not None:
-            list += f'{curr.data}'
-            list += "\n"
+            listx += f'{curr.data}'
+            listx += "\n"
             curr = curr.next_node
-        list += f'{curr.data}'
-        return list
+        listx += f'{curr.data}'
+        return listx
+        
