@@ -1,16 +1,11 @@
 #!/usr/bin/python3
-"""[summary]
-
-    Raises:
-        TypeError: [description]
-
-    Returns:
-        [type]: [description]
-    """
+"""Magic module"""
 import math
 
 
 class MagicClass:
+    """Magic class"""
+
     def __init__(self, radius=0):
         self.__radius = 0
         if type(radius) is not int and type(radius) is not float:
