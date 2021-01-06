@@ -3,24 +3,25 @@
 
 
 class Node:
-    '''class to create Nodes'''
+    """Class to manipulare Nodes"
+    """
 
     def __init__(self, data, next_node=None):
         """[summary]
 
         Args:
-            data ([type]): [description]
-            next_node ([type], optional): [description]. Defaults to None.
+            data ([int]): [integer]
+            next_node ([Node], optional): [description]. Defaults to None.
         """
         self.data = data
         self.next_node = next_node
 
     @property
     def data(self):
-        """[summary]
+        """[Data getter]
 
         Returns:
-            [type]: [description]
+            [int]: [integer]
         """
         return self.__data
 
@@ -29,7 +30,7 @@ class Node:
         """[summary]
 
         Returns:
-            [type]: [description]
+            [Node]: [description]
         """
         return self.__next_node
 
@@ -63,7 +64,7 @@ class Node:
 
 
 class SinglyLinkedList:
-    """SIngle linked list class"
+    """Single linked list class"
     """
     def __init__(self):
         """para inicializar
