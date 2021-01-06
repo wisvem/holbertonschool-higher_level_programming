@@ -1,4 +1,12 @@
 #!/usr/bin/python3
+"""[summary]
+
+    Raises:
+        TypeError: [description]
+
+    Returns:
+        [type]: [description]
+    """
 import math
 
 
