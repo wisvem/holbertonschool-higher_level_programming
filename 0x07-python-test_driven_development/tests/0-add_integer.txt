@@ -1,0 +1,71 @@
+The ```0-add_integer``` module
+==============================
+
+Using ``add_integer``
+____________________
+
+First import ``add_integer``:
+
+	>>> add_integer = __import__('0-add_integer').add_integer
+
+Test 1 two ints:
+
+	>>> add_integer(1, 2)
+	3
+
+Test 2 signed integer:
+
+	>>> add_integer(-1, -2)
+	-3
+
+Test 3 wrong type:
+
+	>>> add_integer(2, 'a')
+	Traceback (most recent call last):
+		...
+	TypeError: b must be an integer
+
+Test 4 syntax:
+
+	>>> add_integer(123, 2bc)
+	Traceback (most recent call last):
+		...
+	SyntaxError: invalid syntax
+
+Test 5 overflow:
+
+	>>> add_integer(100e+1000, 4)
+	Traceback (most recent call last):
+		...
+	OverflowError: cannot convert float infinity to integer
+
+Test 6 two floats:
+
+	>>> add_integer(1.5, 2.7)
+	3
+
+Test 7 none values:
+
+	>>> add_integer(None)
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+
+Test 8 none values:
+
+	>>> add_integer(23)
+	121
+
+Test 9 float cast string:
+
+	>>> add_integer(float('num'), 1)
+	Traceback (most recent call last):
+		...
+	ValueError: could not convert string to float: 'num'
+
+Test 10 more than two arguments:
+
+	>>> add_integer(2, 1, 4)
+	Traceback (most recent call last):
+		...
+	TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
