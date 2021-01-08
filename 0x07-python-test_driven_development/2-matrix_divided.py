@@ -13,7 +13,7 @@ def matrix_divided(matrix, div):
         TypeError: if types don't match
         ZeroDivisionError: if divisor is 0
         TypeError: if div is not a number
- 
+
 
     Returns:
         list: a new matrix with the result
