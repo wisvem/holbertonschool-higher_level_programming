@@ -3,22 +3,20 @@
 
 
 def matrix_divided(matrix, div):
-    """[summary]
+    """divide a matrix of list
 
     Args:
-        matrix ([type]): [description]
-        div ([type]): [description]
+        matrix (list): lst of list of intengers/floats
+        div (int/float): integer or float divisor
 
     Raises:
-        TypeError: [description]
-        ZeroDivisionError: [description]
-        TypeError: [description]
-        TypeError: [description]
-        TypeError: [description]
-        TypeError: [description]
+        TypeError: if types don't match
+        ZeroDivisionError: if divisor is 0
+        TypeError: if div is not a number
+ 
 
     Returns:
-        [type]: [description]
+        list: a new matrix with the result
     """
     m1 = "matrix must be a matrix (list of lists) of integers/floats"
     m2 = "Each row of the matrix must have the same size"
