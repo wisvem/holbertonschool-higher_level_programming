@@ -22,6 +22,7 @@ def text_indentation(text):
         if letter not in (".", "?", ":"):
             sentence += letter
         else:
+            sentence += letter
             try:
                 while sentence[0] == " ":
                     sentence = sentence[1:]
@@ -32,7 +33,7 @@ def text_indentation(text):
                     sentence = sentence[:-1]
             except IndexError:
                 pass
-            newText = newText + sentence + letter + "\n\n"
+            newText = newText + sentence + "\n\n"
             sentence = ""
         pos = pos+1
     try:

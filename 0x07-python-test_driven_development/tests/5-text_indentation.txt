@@ -13,9 +13,9 @@ Test 1:
 	>>> text_indentation("   A sentence: with,  and ? and another ?   ")
 	A sentence:
 	<BLANKLINE>
-	with,  and?
+	with,  and ?
 	<BLANKLINE>
-	and another?
+	and another ?
 	<BLANKLINE>
 
 Test 2:
@@ -75,7 +75,7 @@ Test 6:
 Test 7:
 
 	>>> text_indentation("Final spaces and symbol    ?")
-	Final spaces and symbol?
+	Final spaces and symbol    ?
 	<BLANKLINE>
 
 Test 8:
