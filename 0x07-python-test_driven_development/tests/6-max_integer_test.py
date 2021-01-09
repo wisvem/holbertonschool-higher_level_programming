@@ -68,3 +68,24 @@ class TestMaxInteger(unittest.TestCase):
         """list of strings"""
         with self.assertRaises(TypeError):
             max_integer(["hola", "12345", "cruel", 980336])
+
+    def test15(self):
+        """floats a integers mixed"""
+        self.assertEqual(max_integer([-3.7, -3.9, -4]), -3.7)
+
+    def test16(self):
+        """floats"""
+        self.assertEqual(max_integer([-3.7, -3.9, 5.5]), 5.5)
+
+    def test17(self):
+        """big negative float"""
+        self.assertEqual(max_integer([-3.141618, -3.9, -5.5]), -3.141618)
+
+    def test18(self):
+        """Value error"""
+        with self.assertRaises(ValueError):
+            max_integer([-3.7, int("dog"), 5.5])
+
+    def test16(self):
+        """Inception"""
+        self.assertEqual(max_integer([-3.7, -3.9, max_integer([2, 10])]), 10)
