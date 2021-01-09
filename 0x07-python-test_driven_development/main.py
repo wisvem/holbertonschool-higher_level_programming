@@ -2,5 +2,5 @@
 text_indentation = __import__('5-text_indentation').text_indentation
 
 
-text_indentation("\nend")
+text_indentation("Printing a new-line:\n     Printed.")
 
