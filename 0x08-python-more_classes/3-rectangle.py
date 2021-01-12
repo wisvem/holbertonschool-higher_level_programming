@@ -86,7 +86,7 @@ class Rectangle():
         return 2*(self.__height+self.__width)
 
     def __str__(self):
-        """str method to use print() 
+        """str method to use print()
 
         Returns:
             str: a string
