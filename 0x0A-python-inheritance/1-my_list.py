@@ -1,20 +1,18 @@
 #!/usr/bin/python3
-"""[summary]
-    """
+"""My list module"""
 
 
 class MyList(list):
-    """[summary]
+    """MyList class
 
     Args:
-        list ([type]): [description]
+        list (list): list
     """
 
     def __init__(self):
         pass
 
     def print_sorted(self):
-        """[summary]
-        """
+        """print sorted method"""
         nl = self.copy()
         print(sorted(nl))
