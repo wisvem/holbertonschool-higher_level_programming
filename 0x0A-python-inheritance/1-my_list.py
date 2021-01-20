@@ -9,9 +9,6 @@ class MyList(list):
         list (list): list
     """
 
-    def __init__(self):
-        pass
-
     def print_sorted(self):
         """print sorted method"""
         nl = self.copy()

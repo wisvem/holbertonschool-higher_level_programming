@@ -22,5 +22,5 @@ class Square(Rect):
             str: square data
         """
 
-        sr = "[Square] {}/{}".format(super.)
+        sr = "[Square] {}/{}".format(self, self)
         return sr
