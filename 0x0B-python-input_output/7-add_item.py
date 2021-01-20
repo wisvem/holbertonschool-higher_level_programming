@@ -1,6 +1,6 @@
 #!/usr/bin/python3
+"""add item module"""
 import sys
-from json import load
 
 
 loadjson = __import__('6-load_from_json_file').load_from_json_file
@@ -13,5 +13,5 @@ my_list = sys.argv
 try:
     my_list = [*loadjson(filename), *my_list]
 except:
-    pass
+    FileNotFoundError
 savejson(my_list, filename)
