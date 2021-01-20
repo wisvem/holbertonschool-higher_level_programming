@@ -12,6 +12,6 @@ sys.argv.pop(0)
 my_list = sys.argv
 try:
     my_list = [*loadjson(filename), *my_list]
-except:
-    FileNotFoundError
+except FileNotFoundError:
+    pass
 savejson(my_list, filename)
