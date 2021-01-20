@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""FIle open module"""
+"""filename open module"""
 
 
-def read_file(file):
-    """Open file function
+def read_file(filename=""):
+    """read file function
 
     Args:
-        file (file): file to be opened
+        filename (str, optional): [description]. Defaults to "".
     """
-    with open(file, "r", encoding="utf-8") as f:
+    with open(filename, "r", encoding="utf-8") as f:
         print(f.read().decode())
