@@ -4,7 +4,7 @@
 using ``1-my_list``
 -------------------
 
-first, import function from module:
+import:
 	>>> MyList = __import__('1-my_list').MyList
 
 Test 1:
