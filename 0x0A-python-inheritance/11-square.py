@@ -14,6 +14,7 @@ class Square(Rect):
         """
         self.integer_validator("size", size)
         super().__init__(size, size)
+        self.__size = size
 
     def __str__(self):
         """overloading str method
@@ -22,5 +23,5 @@ class Square(Rect):
             str: square data
         """
 
-        sr = "[Square] {}/{}".format(self, self)
+        sr = "[Square] {}/{}".format(self.__size, self.__size)
         return sr
