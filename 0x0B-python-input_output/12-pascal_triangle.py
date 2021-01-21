@@ -1,15 +1,26 @@
 #!/usr/bin/python3
-"""This module defines a function"""
+"""pascal traingle module"""
 
 
 def pascal_triangle(n):
-    """Pascal triangel function"""
-    results = []
-    for _ in range(n):
-        row = [1]
-        if results:
-            last_row = results[-1]
-            row.extend([sum(pair) for pair in zip(last_row, last_row[1:])])
-            row.append(1)
-        results.append(row)
-    return results
+    """pascal triangle function
+
+    Args:
+        n ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
+    if n == 0:
+        triangle = []
+    elif n == 1:
+        triangle = [[1]]
+    else:
+        triangle = [[1], [1, 1]]
+        for i in range(1, n-1):
+            floor = [1]
+            for j in range(0, len(triangle[i])-1):
+                floor.extend([triangle[i][j] + triangle[i][j+1]])
+            floor += [1]
+            triangle.append(floor)
+    return triangle
