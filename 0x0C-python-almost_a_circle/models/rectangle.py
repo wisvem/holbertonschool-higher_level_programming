@@ -8,10 +8,10 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """Constructor class"""
-        self.width(width)
-        self.height(height)
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
         super().__init__(id)
 
     @property
@@ -21,35 +21,34 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         self.integer_validator("width", value)
-        self.width = value
+        self.__width = value
 
     @property
     def height(self):
-        return self.height
+        return self.__height
 
     @height.setter
-    def height(self, value): 
-        print(type(value))
+    def height(self, value):
         self.integer_validator("height", value)
-        self.height = value
+        self.__height = value
 
     @property
     def x(self):
-        return self.x
+        return self.__x
 
     @x.setter
     def x(self, value):
         self.integer_validator("x", value)
-        self.x = value
+        self.__x = value
 
     @property
     def y(self):
-        return self.y
+        return self.__y
 
     @y.setter
     def y(self, value):
         self.integer_validator("y", value)
-        self.y = value
+        self.__y = value
 
     def integer_validator(self, name, value):
         """Integer validator"""
@@ -59,3 +58,28 @@ class Rectangle(Base):
             raise ValueError("{} must be > 0".format(name))
         if value < 0 and name in ("x", "y"):
             raise ValueError("{} must be >= 0".format(name))
+
+    def area(self):
+        """Area function"""
+        return self.__height * self.__width
+
+    def display(self):
+        """Display function"""
+        print("\n"*self.__y, end="")
+        for i in range(self.__height):
+            print(" "*self.__x, "#"*self.__width, sep="")
+
+    def __str__(self):
+        """str representation"""
+        r = "[Rectangle] ({}) {}/{}".format(self.id, self.__x, self.__y)
+        r += " - {}/{}".format(self.__width, self.__height)
+        return r
+
+    def update(self, *args):
+        """Update rectangle function"""
+        if len(args) > 0:
+            f = [super().__init__, "self.width",
+                 "self.height", "self.x", "self.y"]
+            f[0](args[0])
+            for i in range(1, len(args)):
+                exec(f[i] + "= args[i]")
