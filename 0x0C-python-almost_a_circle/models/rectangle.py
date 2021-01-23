@@ -16,7 +16,7 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        return self.width
+        return self.__width
 
     @width.setter
     def width(self, value):
@@ -75,11 +75,27 @@ class Rectangle(Base):
         r += " - {}/{}".format(self.__width, self.__height)
         return r
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Update rectangle function"""
+        f = []
+        if type(self) is Rectangle:
+            f = ["self.id", "self.width", "self.height",
+                 "self.x", "self.y"]
+        else:
+            f = ["self.id", "self.size",
+                 "self.x", "self.y"]
         if len(args) > 0:
-            f = [super().__init__, "self.width",
-                 "self.height", "self.x", "self.y"]
-            f[0](args[0])
-            for i in range(1, len(args)):
-                exec(f[i] + "= args[i]")
+            try:
+                for i in range(len(args)):
+                    exec(f[i] + "= args[i]")
+            except Exception:
+                pass
+        if len(kwargs) > 0:
+            for key, value in kwargs.items():
+                x = "self."+key
+                exec(x + "= value")
+
+    def to_dictionary(self):
+        """To dict function"""
+        return {"x": self.x, "y": self.y, "id": self.id, "height": self.height,
+                "width": self.width}
