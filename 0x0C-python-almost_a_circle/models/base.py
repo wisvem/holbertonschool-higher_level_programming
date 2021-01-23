@@ -29,7 +29,24 @@ class Base:
     def save_to_file(cls, list_objs):
         """save to file"""
         filename = cls.__name__+".json"
-        if list_objs is not None:
-            return
+        myList = []
+        if list_objs is None:
             with open(filename, "w") as f:
-                f.write(Base.to_json_string(list_objs))
+                f.write(myList)
+        else:
+            for i in list_objs:
+                myList.append(i.to_dictionary())
+            myStr = Base.to_json_string(myList)
+            with open(filename, "w") as f:
+                f.write(myStr)
+
+    def from_json_string(json_string):
+        """from json to string function"""
+        return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """create function"""
+        rx = cls(1, 1)
+        rx.update(**dictionary)
+        return rx
