@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Base module"""
 import json
+import csv
 
 
 class Base:
@@ -45,8 +46,55 @@ class Base:
         return json.loads(json_string)
 
     @classmethod
-    def create(cls, **dictionary):
+    def create(cls, *mydic, **dictionary):
         """create function"""
         rx = cls(1, 1)
-        rx.update(**dictionary)
+        if len(dictionary) > 0:
+            rx.update(**dictionary)
+        else:
+            rx.update(*mydic)
         return rx
+
+    @classmethod
+    def load_from_file(cls):
+        """File to instances functions"""
+        filename = cls.__name__+".json"
+        myList = []
+        try:
+            with open(filename, "r") as f:
+                x = Base.from_json_string(f.read())
+                for i in x:
+                    myList.append(cls.create(**i))
+                return myList
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """save to csv function"""
+        filename = cls.__name__+".csv"
+        if list_objs is None:
+            with open(filename, "w") as f:
+                f.write("")
+        else:
+            with open(filename, "w", newline='') as f:
+                x = csv.writer(f)
+                for i in list_objs:
+                    if cls.__name__ == "Rectangle":
+                        x.writerow([i.id, i.width, i.height, i.x, i.y])
+                    else:
+                        x.writerow([i.id, i.size, i.x, i.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Load from csv function"""
+        filename = cls.__name__+".csv"
+        myList = []
+        try:
+            with open(filename, "r") as f:
+                x = csv.reader(f)
+                for i in x:
+                    myList.append(cls.create(*i))
+                return myList
+        except FileNotFoundError:
+            return []
