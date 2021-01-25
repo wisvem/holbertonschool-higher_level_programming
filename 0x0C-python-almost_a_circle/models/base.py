@@ -45,14 +45,21 @@ class Base:
         """from json to string function"""
         return json.loads(json_string)
 
+    # @classmethod
+    # def create(cls, *mydic, **dictionary):
+    #     """create function"""
+    #     rx = cls(1, 1)
+    #     if len(dictionary) > 0:
+    #         rx.update(**dictionary)
+    #     else:
+    #         rx.update(*mydic)
+    #     return rx
+
     @classmethod
-    def create(cls, *mydic, **dictionary):
-        """create function"""
+    def create(cls, **dictionary):
+        """create function v2"""
         rx = cls(1, 1)
-        if len(dictionary) > 0:
-            rx.update(**dictionary)
-        else:
-            rx.update(*mydic)
+        rx.update(**dictionary)
         return rx
 
     @classmethod
@@ -94,12 +101,17 @@ class Base:
         filename = cls.__name__+".csv"
         myList = []
         ln = 0
+        if cls.__name__ is "Rectangle":
+            keys = ["id", "width", "height", "x", "y"]
+        else:
+            keys = ["id", "size", "x", "y"]
         try:
             with open(filename, "r") as f:
                 x = csv.reader(f)
                 for i in x:
                     if ln > 0:
-                        myList.append(cls.create(*i))
+                        myDict = dict(zip(keys, map(int, i)))
+                        myList.append(cls.create(**myDict))
                     ln += 1
                 return myList
         except FileNotFoundError:
@@ -108,4 +120,37 @@ class Base:
     def draw(list_rectangles, list_squares):
         """draw function"""
         import turtle
-        turtle.getscreen()._root.mainloop()  # <---Keeps window open.
+        import random
+        turtle.bgcolor("black")
+        t = turtle.Turtle()
+        t.shape("turtle")
+        t.speed(3)
+        for i in list_squares:
+            R = random.random()
+            B = random.random()
+            G = random.random()
+            t.color(R, G, B)
+            t.up()
+            t.goto(i.x, i.y)
+            t.down()
+            for x in range(4):
+                t.forward(i.size)
+                t.left(90)
+        for i in list_rectangles:
+            R = random.random()
+            B = random.random()
+            G = random.random()
+            t.color(R, G, B)
+            t.up()
+            t.goto(i.x, i.y)
+            t.down()
+            t.forward(i.width)
+            t.left(90)
+            t.forward(i.height)
+            t.left(90)
+            t.forward(i.width)
+            t.left(90)
+            t.forward(i.height)
+            t.left(90)
+
+        turtle.done()
