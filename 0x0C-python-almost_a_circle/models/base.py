@@ -124,6 +124,8 @@ class Base:
         turtle.bgcolor("black")
         t = turtle.Turtle()
         t.shape("turtle")
+        t.shapesize(1)
+        t.pensize(3)
         t.speed(3)
         for i in list_squares:
             R = random.random()
@@ -152,5 +154,5 @@ class Base:
             t.left(90)
             t.forward(i.height)
             t.left(90)
-
+        t.hideturtle()
         turtle.done()
