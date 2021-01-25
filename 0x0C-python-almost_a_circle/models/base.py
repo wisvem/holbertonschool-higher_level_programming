@@ -75,26 +75,37 @@ class Base:
         filename = cls.__name__+".csv"
         if list_objs is None:
             with open(filename, "w") as f:
-                f.write("")
+                f.write("[]")
         else:
             with open(filename, "w", newline='') as f:
                 x = csv.writer(f)
+                if cls.__name__ == "Rectangle":
+                    x.writerow(["id", "width", "height", "x", "y"])
+                    command = 'x.writerow([i.id, i.width, i.height, i.x, i.y])'
+                else:
+                    x.writerow(["id", "size", "x", "y"])
+                    command = 'x.writerow([i.id, i.size, i.x, i.y])'
                 for i in list_objs:
-                    if cls.__name__ == "Rectangle":
-                        x.writerow([i.id, i.width, i.height, i.x, i.y])
-                    else:
-                        x.writerow([i.id, i.size, i.x, i.y])
+                    exec(command)
 
     @classmethod
     def load_from_file_csv(cls):
         """Load from csv function"""
         filename = cls.__name__+".csv"
         myList = []
+        ln = 0
         try:
             with open(filename, "r") as f:
                 x = csv.reader(f)
                 for i in x:
-                    myList.append(cls.create(*i))
+                    if ln > 0:
+                        myList.append(cls.create(*i))
+                    ln += 1
                 return myList
         except FileNotFoundError:
             return []
+
+    def draw(list_rectangles, list_squares):
+        """draw function"""
+        import turtle
+        turtle.getscreen()._root.mainloop()  # <---Keeps window open.
