@@ -307,11 +307,11 @@ class Test_save_to_file(unittest.TestCase):
         """ Tear down for all methods """
         try:
             remove("Rectangle.json")
-        except:
+        except Exception:
             pass
         try:
             remove("Square.json")
-        except:
+        except Exception:
             pass
 
     def test_Nofile(self):
@@ -415,11 +415,11 @@ class Test_load_from_file(unittest.TestCase):
         """ Tear down for all methods """
         try:
             remove("Rectangle.json")
-        except:
+        except Exception:
             pass
         try:
             remove("Square.json")
-        except:
+        except Exception:
             pass
 
     def test_no_file(self):
@@ -489,11 +489,11 @@ class Test_save_to_file_csv(unittest.TestCase):
         """ Tear down for all methods """
         try:
             remove("Rectangle.csv")
-        except:
+        except Exception:
             pass
         try:
             remove("Square.csv")
-        except:
+        except Exception:
             pass
 
     def test_Nofile_csv(self):
@@ -582,11 +582,11 @@ class Test_load_from_file_csv(unittest.TestCase):
         """ Tear down for all methods """
         try:
             remove("Rectangle.csv")
-        except:
+        except Exception:
             pass
         try:
             remove("Square.csv")
-        except:
+        except Exception:
             pass
 
     def test_no_file_csv(self):
