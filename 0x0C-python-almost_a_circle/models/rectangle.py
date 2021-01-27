@@ -84,14 +84,13 @@ class Rectangle(Base):
         else:
             f = ["self.id", "self.size",
                  "self.x", "self.y"]
-
         if len(args) > 0:
             try:
                 for i in range(len(args)):
                     exec(f[i] + "= int(args[i])")
             except Exception:
                 pass
-        if len(kwargs) > 0:
+        else:
             for key, value in kwargs.items():
                 x = "self."+key
                 exec(x + "= value")

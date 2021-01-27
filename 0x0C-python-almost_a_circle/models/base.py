@@ -22,8 +22,8 @@ class Base:
 
     def to_json_string(list_dictionaries):
         """json to string dict"""
-        if len(list_dictionaries) is 0:
-            return []
+        if list_dictionaries is None:
+            return "[]"
         return json.dumps(list_dictionaries)
 
     @classmethod
@@ -33,7 +33,7 @@ class Base:
         myList = []
         if list_objs is None:
             with open(filename, "w") as f:
-                f.write(myList)
+                f.write("[]")
         else:
             for i in list_objs:
                 myList.append(i.to_dictionary())
@@ -80,9 +80,11 @@ class Base:
     def save_to_file_csv(cls, list_objs):
         """save to csv function"""
         filename = cls.__name__+".csv"
-        if list_objs is None:
+        el = []
+        if list_objs is None or bool(list_objs) is False:
             with open(filename, "w") as f:
-                f.write("[]")
+                x = csv.writer(f)
+                x.writerows(el)
         else:
             with open(filename, "w", newline='') as f:
                 x = csv.writer(f)
@@ -117,6 +119,7 @@ class Base:
         except FileNotFoundError:
             return []
 
+    @staticmethod
     def draw(list_rectangles, list_squares):
         """draw function"""
         import turtle
