@@ -45,6 +45,8 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         """from json to string function"""
+        if json_string is None:
+            return []
         return json.loads(json_string)
 
     # @classmethod
@@ -60,7 +62,10 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """create function v2"""
-        rx = cls(1, 1)
+        if cls.__name__ is "Rectangle":
+            rx = cls(1, 1)
+        else:
+            rx = cls(1)
         rx.update(**dictionary)
         return rx
 
