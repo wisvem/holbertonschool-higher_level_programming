@@ -28,3 +28,18 @@ class Square(Rectangle):
     def to_dictionary(self):
         """To dict function"""
         return {"id": self.id, "x": self.x, "size": self.width, "y": self.y}
+
+    def update(self, *args, **kwargs):
+        """Update rectangle function"""
+        f = []
+        f = ["self.id", "self.size", "self.x", "self.y"]
+        if len(args) > 0:
+            try:
+                for i in range(len(args)):
+                    exec(f[i] + "= int(args[i])")
+            except Exception:
+                pass
+        else:
+            for key, value in kwargs.items():
+                x = "self."+key
+                exec(x + "= value")

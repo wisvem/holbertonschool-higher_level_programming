@@ -20,6 +20,7 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
+    @staticmethod
     def to_json_string(list_dictionaries):
         """json to string dict"""
         if list_dictionaries is None:
@@ -41,6 +42,7 @@ class Base:
             with open(filename, "w") as f:
                 f.write(myStr)
 
+    @staticmethod
     def from_json_string(json_string):
         """from json to string function"""
         return json.loads(json_string)
