@@ -1,3 +1,2 @@
--- List databases
--- Because it is mandatory
+-- List all databases
 SHOW DATABSES;
