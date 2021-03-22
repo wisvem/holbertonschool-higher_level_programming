@@ -1,5 +1,6 @@
 # 0x12. Javascript - Warm up
 
+
 ### [0. First constant, first print](./0-javascript_is_amazing.js)
 - Write a script that prints “Javascript is amazing”:
 
