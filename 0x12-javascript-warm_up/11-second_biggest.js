@@ -1,6 +1,5 @@
 #!/usr/bin/node
 const argv = process.argv;
-
 function secondMax (myArray) {
   if (myArray.length <= 3) {
     return (0);
@@ -14,7 +13,6 @@ function secondMax (myArray) {
 
   return (Math.max(...arr));
 }
-
 console.log(secondMax(argv));
 
 /*
