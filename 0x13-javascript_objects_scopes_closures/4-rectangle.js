@@ -7,10 +7,11 @@ class Rectangle {
     }
   }
 
-  print () {
+  print (c) {
+    if (c === undefined) c = 'X';
     for (let i = 0; i < this.height; i++) {
       for (let j = 0; j < this.width; j++) {
-        process.stdout.write('X');
+        process.stdout.write(c);
       }
       console.log();
     }
