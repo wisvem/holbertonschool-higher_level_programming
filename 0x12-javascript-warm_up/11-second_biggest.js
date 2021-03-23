@@ -1,8 +1,8 @@
 #!/usr/bin/node
-const argv = process.argv;
+const args = process.argv;
 let smax = 0;
-if (argv.length >= 4) {
-  const myArray = argv.slice(2, argv.length);
+if (args.length >= 4) {
+  const myArray = args.slice(2, args.length);
   myArray.sort();
   smax = myArray[myArray.length - 2];
 }
