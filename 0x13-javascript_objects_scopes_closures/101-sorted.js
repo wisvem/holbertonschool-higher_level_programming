@@ -4,8 +4,6 @@ const myDict = {};
 for (const key in dict) {
   myDict[dict[key]] = [];
 }
-console.log(myDict);
-
 for (const key in dict) {
   myDict[dict[key]].push(key);
 }
