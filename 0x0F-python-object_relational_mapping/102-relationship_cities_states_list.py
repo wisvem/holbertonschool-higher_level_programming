@@ -24,7 +24,6 @@ if __name__ == "__main__":
                            City.id.label('cid'),
                            City.name.label('cname'))\
         .filter(City.state_id == State.id)
-    prev_sid = 0
     for r in result:
         print("{}: {} -> {}".format(r.cid, r.cname, r.sname))
     session.close()
