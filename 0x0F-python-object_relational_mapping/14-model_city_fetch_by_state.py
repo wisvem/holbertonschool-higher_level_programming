@@ -16,7 +16,7 @@ if __name__ == "__main__":
     states = "states"
     db = 'mysql+mysqldb://{}:{}@localhost/{}'.format(myU, myP, myDB)
     engine = create_engine(db, pool_pre_ping=True)
-    State.cities = relationship(city, order_by=City.id, back_populates=states)
+#    State.cities = relationship(city, order_by=City.id, back_populates=states)
 
     Base.metadata.create_all(engine)
 
