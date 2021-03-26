@@ -18,7 +18,7 @@ if __name__ == "__main__":
     presession = sessionmaker(bind=engine)
     session = presession()
     sName = "Louisiana"
-    record = State(name = sName)
+    record = State(name=sName)
     session.add(record)
     session.commit()
     result = session.query(State).filter_by(name=sName).first()
