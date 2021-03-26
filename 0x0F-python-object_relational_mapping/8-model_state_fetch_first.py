@@ -19,3 +19,4 @@ if __name__ == "__main__":
     session = presession()
     result = session.query(State).first()
     print("{}: {}".format(result.id, result.name))
+    session.close()

@@ -20,3 +20,4 @@ if __name__ == "__main__":
     result = session.query(State).filter(State.name.like('%a%'))
     for i in result:
         print("{}: {}".format(i.id, i.name))
+    session.close()
