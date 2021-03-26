@@ -18,4 +18,4 @@ if __name__ == "__main__":
     presession = sessionmaker(bind=engine)
     session = presession()
     for i in session.query(State):
-        print(i.id, i.name)
+        print("{}: {}".format(i.id, i.name))
