@@ -23,8 +23,8 @@ if __name__ == "__main__":
     myS = "California"
 
     record = State(name=myS)
-    print(dir(record))
-    exit()
+    c = City(name=myC)
+    record.cities.append(c)
     session.add(record)
     session.commit()
     session.close()
