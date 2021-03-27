@@ -21,7 +21,7 @@ if __name__ == '__main__':
                 if (result.index(row) is len(result) - 1):
                     print(col)
                 else:
-                    print(col, end='\t')
+                    print(col, end=', ')
     else:
         print()
     cur.close()
