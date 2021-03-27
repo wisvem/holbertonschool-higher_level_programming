@@ -24,7 +24,7 @@ if __name__ == "__main__":
     session = presession()
     result = session.query(State.name, City.id, City.name.label('cname'))\
         .filter(City.state_id == State.id)
-    print(result)
+#    print(result)
     for c in result:
         print("{}: ({}) {}".format(c.name, c.id, c.cname))
     session.close()
