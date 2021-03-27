@@ -19,17 +19,10 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     presession = sessionmaker(bind=engine)
     session = presession()
-    result = session.query(State.id.label('sid'),
-                           State.name.label('sname'),
-                           City.id.label('cid'),
-                           City.name.label('cname'))\
-        .filter(City.state_id == State.id)
-    prev_sid = 0
-    for r in result:
-        if (r.sid is not prev_sid):
-            print("{}: {}".format(r.sid, r.sname))
-            print("    {}: {}".format(r.cid, r.cname))
-            prev_sid = r.sid
-        else:
-            print("    {}: {}".format(r.cid, r.cname))
+    result = session.query(State).order_by(State.id).all()
+    
+    for state in result:
+        print("{}: {}".format(state.id, state.name))
+        for city in state.cities:
+            print("    {}: {}".format(city.id, city.name))
     session.close()
