@@ -18,5 +18,7 @@ if __name__ == "__main__":
     presession = sessionmaker(bind=engine)
     session = presession()
     result = session.query(State).first()
+    if (result is None):
+        print("Nothing")
     print("{}: {}".format(result.id, result.name))
     session.close()
