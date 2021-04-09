@@ -5,5 +5,5 @@ from requests import get
 from sys import argv
 
 if __name__ == "__main__":
-    r = get('https://intranet.hbtn.io/status')
+    r = get(argv[1])
     print(r.headers['X-Request-Id'])
