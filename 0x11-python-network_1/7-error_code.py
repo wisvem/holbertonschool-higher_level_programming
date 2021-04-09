@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+""" 7. Error code #1 """
+
 from sys import argv
 from requests import post, get, HTTPError
 
