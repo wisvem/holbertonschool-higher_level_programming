@@ -11,12 +11,12 @@ if __name__ == "__main__":
     url = "https://api.github.com/repos/{}/{}/commits".format(o_name, r_name)
     r = get(url, headers=_head)
     rj = r.json()
-    try:
+    if len(rj) < 10:
         for i in range(10):
             _sha = rj[i].get('sha')
             _name = rj[i].get('commit').get('author').get('name')
             print("{}: {}".format(_sha, _name))
-    except:
+    else:
         for i in range(len(rj)):
             _sha = rj[i].get('sha')
             _name = rj[i].get('commit').get('author').get('name')
