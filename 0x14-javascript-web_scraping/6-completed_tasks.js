@@ -10,11 +10,11 @@ request(url, function (error, response, body) {
   }
   const result = JSON.parse(body);
   result.forEach(element => {
-    if (user !== element.userId) {
-      count = 0;
-      user = element.userId;
-    }
     if (element.completed === true) {
+      if (user !== element.userId) {
+        count = 0;
+        user = element.userId;
+      }
       userTasks[element.userId] = ++count;
     }
   });
