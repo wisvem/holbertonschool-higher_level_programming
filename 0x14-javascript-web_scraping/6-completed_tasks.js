@@ -9,15 +9,13 @@ request(url, function (error, response, body) {
     return console.log(error);
   }
   const result = JSON.parse(body);
-
   result.forEach(element => {
     if (user !== element.userId) {
       count = 0;
       user = element.userId;
     }
     if (element.completed === true) {
-      count++;
-      userTasks[element.userId] = count;
+      userTasks[element.userId] = ++count;
     }
   });
   console.log(userTasks);
