@@ -15,7 +15,8 @@ request(url, function (error, response, body) {
         count = 0;
         user = element.userId;
       }
-      userTasks[element.userId] = ++count;
+      count = count + 1;
+      userTasks[element.userId] = count;
     }
   });
   console.log(userTasks);
