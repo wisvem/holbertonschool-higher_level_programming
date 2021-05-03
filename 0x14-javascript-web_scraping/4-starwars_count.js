@@ -2,18 +2,19 @@
 const request = require('request');
 let count = 0;
 const url = process.argv[2];
-let url2 = 'https://swapi-api.' + 'hbtn.io/api/people/18';
 
-if (url !== 'https://swapi-api.hbtn.io/api/films') {
-  url2 = url2 + 'algomalo';
-}
-
-request(url2, function (error, response, body) {
+request(url, function (error, response, body) {
   if (error) {
     return console.log(error);
   }
-  JSON.parse(body).films.forEach(element => {
-    count++;
+  const result = JSON.parse(body).results;
+
+  result.forEach(element => {
+    element.characters.forEach(c => {
+      if (c.includes('18')) {
+        count++;
+      }
+    });
   });
-  console.log(count); // Print the response status code if a response was received
+  console.log(count);
 });
