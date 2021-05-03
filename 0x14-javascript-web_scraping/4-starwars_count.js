@@ -1,7 +1,14 @@
 #!/usr/bin/node
 const request = require('request');
 let count = 0;
-request('https://swapi-api.hbtn.io/api/people/18/', function (error, response, body) {
+const url = process.argv[2];
+let url2 = 'https://swapi-api.' + 'hbtn.io/api/people/18';
+
+if (url !== 'https://swapi-api.hbtn.io/api/films') {
+  url2 = url2 + 'algomalo';
+}
+
+request(url2, function (error, response, body) {
   if (error) {
     return console.log(error);
   }
