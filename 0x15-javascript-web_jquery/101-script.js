@@ -9,7 +9,7 @@ document.onreadystatechange = function () {
       $('.my_list')[0].appendChild(node);
     });
     document.getElementById('remove_item').addEventListener('click', function () {
-      $('.my_list')[0].lastChild.remove();
+      $('.my_list').children().last().remove();
     });
     document.getElementById('clear_list').addEventListener('click', function () {
       $('.my_list li').remove();
