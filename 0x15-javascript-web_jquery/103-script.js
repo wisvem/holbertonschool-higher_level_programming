@@ -8,9 +8,9 @@ document.onreadystatechange = function () {
         $('#hello').text(data.hello);
       });
     });
-    $('#language_code').keypress(function (e) { 
+    $('#language_code').keypress(function (e) {
       const key = e.which;
-      if (key === 13){
+      if (key === 13) {
         $('#btn_translate').click();
       }
     });
